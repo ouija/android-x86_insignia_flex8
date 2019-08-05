@@ -1,0 +1,49 @@
+diff -Naur a/drivers/platform/x86/silead_dmi.c b/drivers/platform/x86/silead_dmi.c
+--- a/drivers/platform/x86/silead_dmi.c	2019-08-04 14:41:43.928165420 -0600
++++ b/drivers/platform/x86/silead_dmi.c	2019-08-04 14:43:06.359738580 -0600
+@@ -25,6 +25,22 @@
+ 	const struct property_entry *properties;
+ };
+ 
++static const struct property_entry insignia_flex8_props[] = {
++	PROPERTY_ENTRY_U32("touchscreen-size-x", 1720),
++	PROPERTY_ENTRY_U32("touchscreen-size-y", 1140),
++	PROPERTY_ENTRY_BOOL("touchscreen-inverted-y"),
++	PROPERTY_ENTRY_BOOL("touchscreen-swapped-x-y"),
++	PROPERTY_ENTRY_STRING("firmware-name", "gsl1680-insignia_flex8.fw"),
++	PROPERTY_ENTRY_U32("silead,max-fingers", 10),
++	PROPERTY_ENTRY_BOOL("silead,home-button"),
++	{ }
++};
++
++static const struct silead_ts_dmi_data insignia_flex8_data = {
++	.acpi_name	= "MSSL1680:00",
++	.properties	= insignia_flex8_props,
++};
++
+ static const struct property_entry cube_iwork8_air_props[] = {
+ 	PROPERTY_ENTRY_U32("touchscreen-size-x", 1660),
+ 	PROPERTY_ENTRY_U32("touchscreen-size-y", 900),
+@@ -344,6 +360,15 @@
+ 
+ static const struct dmi_system_id silead_ts_dmi_table[] = {
+ 	{
++		/* Insignia Flex8 */
++		.driver_data = (void *)&insignia_flex8_data,
++		.matches = {
++			DMI_MATCH(DMI_SYS_VENDOR, "Insignia"),
++			DMI_MATCH(DMI_PRODUCT_NAME, "NS-P08W7100"),
++			DMI_MATCH(DMI_BOARD_NAME, "Cherry Trail CR"),
++		},
++	},
++	{
+ 		/* CUBE iwork8 Air */
+ 		.driver_data = (void *)&cube_iwork8_air_data,
+ 		.matches = {
+@@ -644,4 +669,4 @@
+  * itself is ready (which happens at postcore initcall level), but before
+  * ACPI starts enumerating devices (at subsys initcall level).
+  */
+-arch_initcall(silead_ts_dmi_init);
++arch_initcall(silead_ts_dmi_init);
+\ No newline at end of file

@@ -1,0 +1,9 @@
+    alsa_amixer -c1 cset name='Stereo DAC MIXR DAC R1 Switch' off
+    alsa_amixer -c1 cset name='Stereo DAC MIXL DAC R1 Switch' on
+
+    alsa_amixer -c1 cset name='Speaker Switch' on
+    alsa_amixer -c1 cset name='LOUT L Playback Switch' on
+    # Done after turning the speaker on to keep the bias and clk on
+    alsa_amixer -c1 cset name='Headphone Switch' off
+    alsa_amixer -c1 cset name='HPO L Playback Switch' off
+    alsa_amixer -c1 cset name='HPO R Playback Switch' off
