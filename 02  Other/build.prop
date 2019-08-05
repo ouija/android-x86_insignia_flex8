@@ -93,3 +93,4 @@ net.bt.name=Android
 dalvik.vm.stack-trace-dir=/data/anr
 debug.hwui.renderer=skiagl
 debug.composition.type=gpu
+persist.sys.nativebridge=1
