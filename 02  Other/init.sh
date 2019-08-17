@@ -330,6 +330,12 @@ function init_hal_sensors()
 		*T*0*TA*)
 			set_property ro.iio.accel.y.opt_scale -1
 			;;
+		*WT8-B*)
+			setprop ro.iio.accel.order 102
+			setprop ro.iio.accel.x.opt_scale -1
+			setprop ro.iio.accel.y.opt_scale -1
+			setprop ro.iio.anglvel.order 102
+			;;
 		*NS-P08W7100*)
 			set_property ro.iio.accel.quirks no-trig
 			set_property ro.iio.accel.order 102
