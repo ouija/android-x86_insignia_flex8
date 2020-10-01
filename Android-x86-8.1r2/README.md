@@ -17,7 +17,7 @@ To build from source, follow the instructions at [Android-x86.org](https://www.a
 * Copy [touchscreen firmware](https://github.com/ouija/android-x86_insignia_flex8/raw/master/Android-x86-8.1r2/02%20%20Other/gsl1680-insignia_flex8.fw) to ./device/generic/firmware/silead/gsl1680-insignia_flex8.fw
 * Copy [soundcard state file for alsa](https://raw.githubusercontent.com/ouija/android-x86_insignia_flex8/master/Android-x86-8.1r2/02%20%20Other/bytcrrt5651.state) to ./device/generic/common/alsa/bytcrrt5651.state
 * Build the kernel / iso and install to device
-* Once booted in Android, create an /etc/insignia folder and copy all [scripts](https://github.com/ouija/android-x86_insignia_flex8/tree/master/01%20%20Scripts) to this folder
+* Once booted in Android, create an /etc/insignia folder and copy all [scripts](https://github.com/ouija/android-x86_insignia_flex8/tree/master/Android-x86-8.1r2/01%20%20Scripts) to this folder
 * Replace /system/build.prop with [this file](https://raw.githubusercontent.com/ouija/android-x86_insignia_flex8/master/Android-x86-8.1r2/02%20%20Other/build.prop)
 * Replace /etc/init.sh with [this file](https://raw.githubusercontent.com/ouija/android-x86_insignia_flex8/master/Android-x86-8.1r2/02%20%20Other/init.sh)
 * IMPORTANT: To fully resolve the c-stage bug, it is advised to add "intel_idle.max_state=1 reboot=acpi" kernel command to the grub loader
