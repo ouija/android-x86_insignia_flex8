@@ -27,5 +27,5 @@ See [this topic](https://groups.google.com/forum/#!topic/android-x86/KvAhIKcf224
 
 --------------------
 
-Pre-built image [here](https://mega.nz/file/2aw3hC7Q#O7emr5t-txQDiho_CN5ELauDoEeg0lZ49xUvHkefYxM)<br>
+Pre-built kernel and modules [here](https://mega.nz/file/2aw3hC7Q#O7emr5t-txQDiho_CN5ELauDoEeg0lZ49xUvHkefYxM)<br>
 Create USB Installer based off [Andoid-x86 8.1r1](https://osdn.net/projects/android-x86/releases/69704) and replace kernel and system.sfs with zip contents.
