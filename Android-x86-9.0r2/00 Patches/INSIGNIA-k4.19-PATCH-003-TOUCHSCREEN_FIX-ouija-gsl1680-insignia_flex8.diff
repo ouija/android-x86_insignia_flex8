@@ -1,0 +1,42 @@
+diff -Naur a/drivers/platform/x86/touchscreen_dmi.c b/drivers/platform/x86/touchscreen_dmi.c
+--- a/drivers/platform/x86/touchscreen_dmi.c	2020-09-10 00:10:29.441453986 -0600
++++ b/drivers/platform/x86/touchscreen_dmi.c	2020-09-10 00:09:37.113736934 -0600
+@@ -141,6 +141,22 @@
+ 	.properties     = connect_tablet9_props,
+ };
+ 
++static const struct property_entry insignia_flex8_props[] = {
++	PROPERTY_ENTRY_U32("touchscreen-size-x", 1720),
++	PROPERTY_ENTRY_U32("touchscreen-size-y", 1140),
++	PROPERTY_ENTRY_BOOL("touchscreen-inverted-y"),
++	PROPERTY_ENTRY_BOOL("touchscreen-swapped-x-y"),
++	PROPERTY_ENTRY_STRING("firmware-name", "gsl1680-insignia_flex8.fw"),
++	PROPERTY_ENTRY_U32("silead,max-fingers", 10),
++	PROPERTY_ENTRY_BOOL("silead,home-button"),
++	{ }
++};
++
++static const struct ts_dmi_data insignia_flex8_data = {
++	.acpi_name	= "MSSL1680:00",
++	.properties	= insignia_flex8_props,
++};
++
+ static const struct property_entry cube_iwork8_air_props[] = {
+ 	PROPERTY_ENTRY_U32("touchscreen-min-x", 1),
+ 	PROPERTY_ENTRY_U32("touchscreen-min-y", 3),
+@@ -605,6 +621,15 @@
+ 		},
+ 	},
+ 	{
++		/* Insignia Flex8 */
++		.driver_data = (void *)&insignia_flex8_data,
++		.matches = {
++			DMI_MATCH(DMI_SYS_VENDOR, "Insignia"),
++			DMI_MATCH(DMI_PRODUCT_NAME, "NS-P08W7100"),
++			DMI_MATCH(DMI_BOARD_NAME, "Cherry Trail CR"),
++		},
++	},
++	{
+ 		/* CUBE iwork8 Air */
+ 		.driver_data = (void *)&cube_iwork8_air_data,
+ 		.matches = {
