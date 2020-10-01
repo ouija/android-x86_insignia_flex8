@@ -20,7 +20,12 @@ To build from source, follow the instructions at [Android-x86.org](https://www.a
 * Once booted in Android, create an /etc/insignia folder and copy all [scripts](https://github.com/ouija/android-x86_insignia_flex8/tree/master/01%20%20Scripts) to this folder
 * Replace /system/build.prop with [this file](https://github.com/ouija/android-x86_insignia_flex8/blob/master/02%20%20Other/build.prop)
 * Replace /etc/init.sh with [this file](https://github.com/ouija/android-x86_insignia_flex8/blob/master/02%20%20Other/init.sh)
-* IMPORTANT: To fully resolve the c-stage bug, it is advised to at "intel_idle.max_state=1 reboot=acpi" kernel command to the grub loader
+* IMPORTANT: To fully resolve the c-stage bug, it is advised to add "intel_idle.max_state=1 reboot=acpi" kernel command to the grub loader
 
 
 See [this topic](https://groups.google.com/forum/#!topic/android-x86/KvAhIKcf224) on the [Android-x86 Google Group](https://groups.google.com/forum/#!forum/android-x86) for more information and for further assistance if necessary
+
+--------------------
+
+Pre-built image [here](https://mega.nz/file/2aw3hC7Q#O7emr5t-txQDiho_CN5ELauDoEeg0lZ49xUvHkefYxM)<br>
+Create USB Installer based off [Andoid-x86 8.1r1](https://osdn.net/projects/android-x86/releases/69704) and replace kernel and system.sfs with zip contents.
