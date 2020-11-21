@@ -57,7 +57,7 @@ To build from source, follow the instructions at [Android-x86.org](https://www.a
 ## Additional Build Details
 
 * Replaced staging `rtl8723bs` driver with [youling257's version](https://github.com/youling257/rockchip_wlan) for improved wirless connectivity.
-* Added `acpi=force reboot=acpi acpi_osi='!Windows 2013' acpi_osi='!Windows 2012' acpi_osi='Linux'` boot args to GRUB -> `android.cfg` to improve ACPI support.
+* Added `acpi=force reboot=acpi acpi_osi='!Windows 2013' acpi_osi='!Windows 2012' acpi_osi='Linux'` boot args to GRUB (`android.cfg`) to improve ACPI support.
 * Added `acpi_backlight=vendor` boot args to GRUB (`android.cfg`) to resolve black screen when resume from sleep.
 * Added `intel_idle.max_cstate=1` boot args to GRUB (`android.cfg`) to improve deep sleep issues with IGFX and Baytrail/Cherrytrail c-state bug.
 * Updated `/system/etc/init.sh` startup script and added `NS-P08W7100` to `init_hal_sensors` function to properly initialize accelerometers _(screen rotation)_.
