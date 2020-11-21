@@ -1,8 +1,10 @@
-# [Android-x86](https://www.android-x86.org) on the [Insignia Flex8](https://www.insigniaproducts.com/pdp/NS-P08W7100/5451211)
+# [Android-x86](https://www.android-x86.org) on the [Insignia Flex 8](https://www.insigniaproducts.com/pdp/NS-P08W7100/5451211)
 
-This repository contains kernel patches, scripts and more that I've utilized to get Android-x86 [v8.1-r2] running on a Insignia Flex8 [NS-P08W7100] tablet.
+Android-x86_64 [v9.0r2] running on a Insignia Flex 8 [NS-P08W7100] tablet.
 
-Based off [Kernel 4.18](https://osdn.net/projects/android-x86/scm/git/kernel/tree/kernel-4.18/)
+Based off [Kernel xxx](https://osdn.net/projects/android-x86/scm/git/kernel/tree/kernel-4.18/)
+
+Please consider [donating](https://paypal.me/djouija) to support this project. Thanks!
 
 
 To build from source, follow the instructions at [Android-x86.org](https://www.android-x86.org/source.html) and switch to the 4.18 kernel:
