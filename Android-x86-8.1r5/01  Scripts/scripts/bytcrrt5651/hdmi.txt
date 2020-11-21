@@ -1,0 +1,8 @@
+alsa_amixer -c0 set 'IEC958',0 on
+alsa_amixer -c0 set 'IEC958',1 on
+alsa_amixer -c0 set 'IEC958',2 on
+#setprop hal.audio.out pcmC1D7p
+#killall audioserver
+
+
+#this files is NOT needed -- just for reference

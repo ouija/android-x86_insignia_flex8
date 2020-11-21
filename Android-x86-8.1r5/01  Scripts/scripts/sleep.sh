@@ -28,12 +28,12 @@ do
         log -p v -t "Sleep script (c) 2020 by @ouija" "Device asleep, monitoring network activity for $TIMEOUT sec before entering s2idle mode.."
         # wait timeout before doing anything
         sleep $(($TIMEOUT - 1))
-        if  [ "$PWR_STATE" == "freeze mem disk" ] && [ "$DOWNLOAD" -gt "$(ifconfig wlan0|grep "RX bytes"|cut -d ":" -f 2|cut -d " " -f 1)" ] && [ "$UPLOAD" -gt "$(ifconfig wlan0|grep "TX bytes"|cut -d ":" -f 3)" ]; then
+        if  [ "$PWR_STATE" == "freeze mem" ] && [ "$DOWNLOAD" -gt "$(ifconfig wlan0|grep "RX bytes"|cut -d ":" -f 2|cut -d " " -f 1)" ] && [ "$UPLOAD" -gt "$(ifconfig wlan0|grep "TX bytes"|cut -d ":" -f 3)" ]; then
             # verify device wakefulness state as asleep
             WAKE_STATE_VERIFY=$(dumpsys power | grep -m1 'mWakefulness' | cut -d = -f 2)
             # verify current power state as default
             PWR_STATE_VERIFY=$(cat /sys/power/state)
-            if [ "$WAKE_STATE_VERIFY" == "Asleep" ] && [ "$PWR_STATE_VERIFY" == "freeze mem disk" ]; then
+            if [ "$WAKE_STATE_VERIFY" == "Asleep" ] && [ "$PWR_STATE_VERIFY" == "freeze mem" ]; then
                 log -p v -t "Sleep script (c) 2020 by @ouija" "No network activity -> Entering s2idle (suspend-to-ram) mode.."
                 touch /etc/scripts/.suspend
                 #svc wifi disable
