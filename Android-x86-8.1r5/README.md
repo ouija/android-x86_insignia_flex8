@@ -41,7 +41,7 @@ To build from source, follow the instructions at [Android-x86.org](https://www.a
 	git fetch x86 kernel-4.18
 	git checkout FETCH_HEAD
 
-* Patch 4.18.14 kernel with [all patches](./00%20 Patches) in sequential order.
+* Patch 4.18.14 kernel with [all patches](./00%20Patches/) in sequential order.
 * As of this build, Kernel 4.18 had issues compiling due to missing `./kernel/drivers/net/wireless/broadcom/wl/Makefile`:
 	* Edit `./kernel/drivers/net/wireless/broadcom/Makefile` and remove or comment out the line `obj-$(CONFIG_WL)       += wl/`
 	* Edit `./kernel/drivers/net/wireless/broadcom/Kconfig` and remove or comment out the line `source "drivers/net/wireless/broadcom/wl/Kconfig"`
