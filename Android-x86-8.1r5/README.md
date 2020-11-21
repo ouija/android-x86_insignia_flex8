@@ -19,7 +19,7 @@ Please consider [donating](https://paypal.me/djouija) to support this project. T
 * Note you should login to a Google account and update all pre-installed applications to ensure proper functionality after fresh install.
 * Enjoy your Insigna Flex 8 running Android-x86!
 
-<br>
+
 ## Recent Bugfixes and Improvements
 
 * 2020-11-18:
@@ -32,7 +32,7 @@ Please consider [donating](https://paypal.me/djouija) to support this project. T
 	* Fixed levels for internal and external headset microphones.
 	* Added "HDMI Output" switching to GRUB2 loader menu.
 
-<br>
+
 ## Kernel Build Instructions
 
 To build from source, follow the instructions at [Android-x86.org](https://www.android-x86.org/source.html) and switch to the 4.18 kernel:
@@ -53,7 +53,7 @@ To build from source, follow the instructions at [Android-x86.org](https://www.a
 * Replace /system/build.prop with [this file](https://github.com/ouija/android-x86_insignia_flex8/blob/master/02%20%20Other/build.prop)
 * Replace /etc/init.sh with [this file](https://github.com/ouija/android-x86_insignia_flex8/blob/master/02%20%20Other/init.sh)
 
-<br>
+
 ## Additional Build Details
 
 * Replaced staging `rtl8723bs` driver with [youling257's version](https://github.com/youling257/rockchip_wlan) for improved wirless connectivity.
@@ -69,7 +69,7 @@ To build from source, follow the instructions at [Android-x86.org](https://www.a
 * Added `ES File Explorer` to pre-built image.
 * Added `nano` to pre-built image.
 
-<br>
+
 ## Known Bugs and Issues
 
 * The `bytcr5651` audio card in this device has a strange ext-amp (internal speaker) configuration, and it fails to be detected by almost all modern kernels _except_ for k4.18 _(with the use of an additional patch to enable the GPIO pin)_; Hoping to figure out a solution to resolve this on newer kernels but sick of compiling from source with no results, and sticking with 4.18 for now!
@@ -82,8 +82,8 @@ To build from source, follow the instructions at [Android-x86.org](https://www.a
 * If having issues resuming from suspend/sleep, you can try using `intel_idle.max_state=1` or `i915.enable_execlists=0` boot args in GRUB (`android.cfg`).
 * For Netflix support, use version [4.16 build 15172](https://netflixhelp.s3.amazonaws.com/netflix-4.16-15172-release.apk)
 
-<br>
+
 ## Notes
 
 * Special thanks to [@cwhuang](https://github.com/cwhuang) and [@youling257](https://github.com/youling257) for their support.
-* See [this topic](https://groups.google.com/forum/#!topic/android-x86/KvAhIKcf224) on the [Android-x86 Google Group](https://groups.google.com/forum/#!forum/android-x86) for more information and for further assistance if necessary
+* See [this topic](https://groups.google.com/forum/#!topic/android-x86/KvAhIKcf224) on the [Android-x86 Google Group](https://groups.google.com/forum/#!forum/android-x86) for more information and for further assistance if necessary.
