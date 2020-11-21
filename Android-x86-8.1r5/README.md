@@ -10,7 +10,7 @@ Please consider [donating](https://paypal.me/djouija) to support this project. T
 
 ## Installation Instructions
 
-* [Download latest pre-built image here]() &nbsp; | &nbsp; [View all builds](https://www.androidfilehost.com/?w=files&flid=320110)
+* [Download latest pre-built image here](https://androidfilehost.com/?fid=10763459528675588358) &nbsp; | &nbsp; [View all builds](https://www.androidfilehost.com/?w=files&flid=320110)
 * Use [Rufus](https://rufus.ie/) to create USB drive installer.
 * Use OTG adapter to connect USB drive and keyboard to device and press `DEL` at bios logo and navigate to `<Security>` then select `Secure Boot menu` and make sure `Secure Boot` is disabled.
 * Boot from USB drive under the `Save & Exit` menu via the `Boot Override` section *(If `Secure Boot` was enabled, ensure you `Save Changes & Reset` before booting from USB!)*
@@ -22,7 +22,7 @@ Please consider [donating](https://paypal.me/djouija) to support this project. T
 
 ## Recent Bugfixes and Improvements
 
-* 2020-11-18:
+* [2020-11-18](https://androidfilehost.com/?fid=10763459528675588358):
 	* First pre-built image released!
 	* Improved s2idle [[s0ix]](https://01.org/blogs/qwang59/2018/how-achieve-s0ix-states-linux) support [(per these patches)](https://bugzilla.kernel.org/show_bug.cgi?id=196861)
 	* Improved Wi-Fi support and random disconnects via alternate `rtl8723bs` driver.
