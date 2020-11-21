@@ -31,6 +31,8 @@ Please consider [donating](https://paypal.me/djouija) to support this project. T
 	* Fixed headphone switching on boot _(audio will automatically output to headphones if connected on startup)_ 
 	* Fixed levels for internal and external headset microphones.
 	* Added "HDMI Output" switching to GRUB2 loader menu.
+	* Fixed terminal and `nano` dipslay to fill screen when running as superuser *(added terminal line settings)*
+	* **Note**: Recently identified that *s0ix* not working properly, currently debugging and new build hopefully coming soon!
 
 
 ## Kernel Build Instructions
