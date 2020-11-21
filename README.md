@@ -1,6 +1,6 @@
 # [Android-x86](https://www.android-x86.org) on the [Insignia Flex 8](https://www.insigniaproducts.com/pdp/NS-P08W7100/5451211)
 
-![icon](product.jpg)
+![icon](image.jpg)
 
 This repository contains kernel patches, scripts and more that I've utilized to get Android-x86 running on a Toshiba Encore 2 [WT8-B] tablet.
 
