@@ -24,7 +24,7 @@ Please consider [donating](https://paypal.me/djouija) to support this project. T
 
 * [2020-11-18](https://androidfilehost.com/?fid=10763459528675588358):
 	* First pre-built image released!
-	* Improved s2idle [[s0ix]](https://01.org/blogs/qwang59/2018/how-achieve-s0ix-states-linux) support [(per these patches)](https://bugzilla.kernel.org/show_bug.cgi?id=196861)
+	* Improved s2idle support [(per these patches)](https://bugzilla.kernel.org/show_bug.cgi?id=196861)
 	* Improved Wi-Fi support and random disconnects via alternate `rtl8723bs` driver.
 	* Improved `/etc/scripts/sleep.sh` script for better s2idle support.
 	* Fixed "audio pop" issue with touch events when using headphones via `/etc/scripts/pop-fix.sh` script.
@@ -32,7 +32,7 @@ Please consider [donating](https://paypal.me/djouija) to support this project. T
 	* Fixed levels for internal and external headset microphones.
 	* Added "HDMI Output" switching to GRUB2 loader menu.
 	* Fixed terminal and `nano` dipslay to fill screen when running as superuser *(added terminal line settings)*
-	* **Note**: Recently identified that *s0ix* not working properly, currently debugging and new build hopefully coming soon!
+	* **Note**: Recently identified that [s0ix](https://01.org/blogs/qwang59/2018/how-achieve-s0ix-states-linux) not working properly, currently debugging and new build hopefully coming soon!
 
 
 ## Kernel Build Instructions
