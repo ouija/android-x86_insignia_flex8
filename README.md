@@ -10,5 +10,5 @@ Please consider [donating](https://paypal.me/djouija) to support this project. T
 
 ## Select a build:
 
-## [Android-x86-8.1r5](./Android-x86-8.1r5)
+## [Android-x86-8.1r5](./Android-x86-8.1r5) -- release build _now available!_
 ## [Android-x86-9.0r2](./Android-x86-9.0r2) -- under development, more info soon
