@@ -1,0 +1,37 @@
+From 932e40d72ba73878d8a7d84488195b228863d546 Mon Sep 17 00:00:00 2001
+From: Johannes Stezenbach <js@sig21.net>
+Date: Fri, 11 Aug 2017 22:51:24 +0200
+Subject: [PATCH 2/3] ACPI / LPSS: fix I2C7 blocking S0ix
+
+PMIC is connected via I2C7, and it cannot be turned off
+since a hardware unit may use it at any time.  Thus I2C7 on
+must not prevent the DMA controllers from being powered off,
+as that blocks S0ix entry.
+
+Signed-off-by: Johannes Stezenbach <js@sig21.net>
+---
+ drivers/acpi/acpi_lpss.c | 7 +++++--
+ 1 file changed, 5 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/acpi/acpi_lpss.c b/drivers/acpi/acpi_lpss.c
+index 10347e3d73ad..71de49df4f45 100644
+--- a/drivers/acpi/acpi_lpss.c
++++ b/drivers/acpi/acpi_lpss.c
+@@ -762,9 +762,12 @@ static void lpss_iosf_enter_d3_state(void)
+ 	/*
+ 	 * PMC provides an information about actual status of the LPSS devices.
+ 	 * Here we read the values related to LPSS power island, i.e. LPSS
+-	 * devices, excluding both LPSS DMA controllers, along with SCC domain.
++	 * devices, excluding both LPSS DMA controllers and I2C7, along with
++	 * SCC domain.  I2C7 needs to be always on because a hardware unit
++	 * may use it to access the PMIC, but DMA needs to be disabled
++	 * anyway to enter S0ix.
+ 	 */
+-	u32 func_dis, d3_sts_0, pmc_status, pmc_mask = 0xfe000ffe;
++	u32 func_dis, d3_sts_0, pmc_status, pmc_mask = 0x7e000ffe;
+ 	int ret;
+ 
+ 	ret = pmc_atom_read(PMC_FUNC_DIS, &func_dis);
+-- 
+2.14.1
+

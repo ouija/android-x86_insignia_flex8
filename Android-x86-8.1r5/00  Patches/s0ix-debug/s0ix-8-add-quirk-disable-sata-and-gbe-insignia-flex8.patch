@@ -1,0 +1,97 @@
+SATA IP is enabled on Insignia Flex 8 even though the
+machine doesn't use it (it has eMMC storage), however the
+SATA IP blocks S0ix entry so we need to disable it.
+
+Original patch from Johannes Stezenbach
+https://bugzilla.kernel.org/show_bug.cgi?id=193891
+
+---
+ drivers/platform/x86/pmc_atom.c | 33 +++++++++++++++++++++++++++++++++
+ 1 file changed, 33 insertions(+)
+
+diff --git a/drivers/platform/x86/pmc_atom.c b/drivers/platform/x86/pmc_atom.c
+index 087f707f209c..f5d01889e41f 100644
+--- a/drivers/platform/x86/pmc_atom.c
++++ b/drivers/platform/x86/pmc_atom.c
+@@ -17,6 +17,7 @@
+ 
+ #include <linux/debugfs.h>
+ #include <linux/device.h>
++#include <linux/dmi.h>
+ #include <linux/init.h>
+ #include <linux/io.h>
+ #include <linux/platform_data/x86/clk-pmc-atom.h>
+@@ -57,6 +58,9 @@ struct pmc_dev {
+ static struct pmc_dev pmc_device;
+ static u32 acpi_base_addr;
+ 
++static u32 quirks;
++#define QUIRK_DISABLE_SATA BIT(0)
++#define QUIRK_DISABLE_GBE BIT(0)
++
+ static const struct pmc_clk byt_clks[] = {
+ 	{
+ 		.name = "xtal",
+@@ -271,6 +275,15 @@ static void pmc_hw_reg_setup(struct pmc_dev *pmc)
+ 	 * - GPIO_SCORE shared IRQ
+ 	 */
+ 	pmc_reg_write(pmc, PMC_S0IX_WAKE_EN, (u32)PMC_WAKE_EN_SETTING);
++
++	if (quirks & QUIRK_DISABLE_SATA) {
++		u32 func_dis;
++
++		pr_info("pmc: disable SATA IP\n");
++		func_dis = pmc_reg_read(pmc, PMC_FUNC_DIS);
++		func_dis |= BIT_SATA;
++		pmc_reg_write(pmc, PMC_FUNC_DIS, func_dis);
++	}
++
++	if (quirks & QUIRK_DISABLE_GBE) {
++		u32 func_dis;
++
++		pr_info("pmc: disable GBE IP\n");
++		func_dis = pmc_reg_read(pmc, PMC_FUNC_DIS);
++		func_dis |= BIT_GBE;
++		pmc_reg_write(pmc, PMC_FUNC_DIS, func_dis);
++	}
+ }
+ 
+ #ifdef CONFIG_DEBUG_FS
+@@ -500,6 +513,24 @@ static struct pmc_notifier_block pmc_freeze_nb = {
+ };
+ #endif
+ 
++static int cht_insignia_flex8(const struct dmi_system_id *id)
++{
++	pr_info("pmc: Insignia Flex 8 detected\n");
++	quirks |= QUIRK_DISABLE_SATA;
++	quirks |= QUIRK_DISABLE_GBE;
++	return 1;
++}
++
++static const struct dmi_system_id cht_table[] = {
++	{
++		.callback = cht_insignia_flex8,
++		.matches = {
++			DMI_MATCH(DMI_SYS_VENDOR, "Insignia"),
++			DMI_MATCH(DMI_PRODUCT_NAME, "NS-P08W7100"),
++		},
++	},
++	{ }
++};
++
+ static int pmc_setup_dev(struct pci_dev *pdev, const struct pci_device_id *ent)
+ {
+ 	struct pmc_dev *pmc = &pmc_device;
+@@ -526,6 +557,8 @@ static int pmc_setup_dev(struct pci_dev *pdev, const struct pci_device_id *ent)
+ 
+ 	pmc->map = map;
+ 
++	dmi_check_system(cht_table);
++
+ 	/* PMC hardware registers setup */
+ 	pmc_hw_reg_setup(pmc);
+ 
+-- 
+2.14.1
+
