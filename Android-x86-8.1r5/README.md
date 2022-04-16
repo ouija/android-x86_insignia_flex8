@@ -47,13 +47,13 @@ To build from source, follow the instructions at [Android-x86.org](https://www.a
 * As of this build, Kernel 4.18 had issues compiling due to missing `./kernel/drivers/net/wireless/broadcom/wl/Makefile`:
 	* Edit `./kernel/drivers/net/wireless/broadcom/Makefile` and remove or comment out the line `obj-$(CONFIG_WL)       += wl/`
 	* Edit `./kernel/drivers/net/wireless/broadcom/Kconfig` and remove or comment out the line `source "drivers/net/wireless/broadcom/wl/Kconfig"`
-* Copy [touchscreen firmware](https://github.com/ouija/android-x86_insignia_flex8/blob/master/02%20%20Other/gsl1680-insignia_flex8.fw) to `./device/generic/firmware/silead/gsl1680-insignia_flex8.fw` if 	building iso from source, or place in `./system/lib/firmware/silead/` for pre-built system image.
-* Copy [soundcard state file for alsa](https://github.com/ouija/android-x86_insignia_flex8/blob/master/02%20%20Other/bytcrrt5651.state) to `./device/generic/common/alsa/bytcrrt5651.state` if building iso from source, or place in `./system/etc/alsa` for pre-built system image.
+* Copy [touchscreen firmware](https://github.com/ouija/android-x86_insignia_flex8/blob/master/Android-x86-8.1r5/02%20%20Other/gsl1680-insignia_flex8.fw) to `./device/generic/firmware/silead/gsl1680-insignia_flex8.fw` if building iso from source, or place in `./system/lib/firmware/silead/` for pre-built system image.
+* Copy [soundcard state file for alsa](https://github.com/ouija/android-x86_insignia_flex8/blob/master/Android-x86-8.1r5/02%20%20Other/bytcrrt5651.state) to `./device/generic/common/alsa/bytcrrt5651.state` if building iso from source, or place in `./system/etc/alsa` for pre-built system image.
 * Replaced the staging `rtl8723bs` driver with [youling257's version](https://github.com/youling257/rockchip_wlan) and compiled from source [as per these instructions](https://groups.google.com/g/android-x86/c/iwSFhlLyW7A/m/kSxTf-rBAwAJ).
 * Build the kernel / iso and install to device.
-* Once booted in Android, create an /etc/scripts folder and copy all [scripts](https://github.com/ouija/android-x86_insignia_flex8/tree/master/01%20%20Scripts) to this folder
-* Replace /system/build.prop with [this file](https://github.com/ouija/android-x86_insignia_flex8/blob/master/02%20%20Other/build.prop)
-* Replace /etc/init.sh with [this file](https://github.com/ouija/android-x86_insignia_flex8/blob/master/02%20%20Other/init.sh)
+* Once booted in Android, create an /etc/scripts folder and copy all [scripts](https://github.com/ouija/android-x86_insignia_flex8/tree/master/Android-x86-8.1r5/01%20%20Scripts) to this folder
+* Replace /system/build.prop with [this file](https://github.com/ouija/android-x86_insignia_flex8/blob/master/Android-x86-8.1r5/02%20%20Other/build.prop)
+* Replace /etc/init.sh with [this file](https://github.com/ouija/android-x86_insignia_flex8/blob/master/Android-x86-8.1r5/02%20%20Other/init.sh)
 
 
 ## Additional Build Details
